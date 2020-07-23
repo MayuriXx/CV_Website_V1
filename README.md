@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/MayuriXx/CV_Website/badge.svg?t=lUuLgm)](https://coveralls.io/github/MayuriXx/CV_Website)
+
 # my_cv_flutter_web_app
 
 A new Flutter project.
