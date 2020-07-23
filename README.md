@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/MayuriXx/CV_Website.svg?token=yoSNKsqzUqydxpvmVfja&branch=master)](https://travis-ci.com/MayuriXx/CV_Website)
+[![Coverage Status](https://coveralls.io/repos/github/MayuriXx/CV_Website/badge.svg?t=lUuLgm)](https://coveralls.io/github/MayuriXx/CV_Website)
 
 # my_cv_flutter_web_app
 
