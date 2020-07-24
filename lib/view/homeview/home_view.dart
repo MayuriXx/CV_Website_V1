@@ -73,7 +73,7 @@ class _HomeView extends State<HomeView> {
       padding: EdgeInsets.only(),
       child: Container(
         color: CVColors.greySecondaryColorLight,
-        height: 300,
+        height: 400,
         width: withContent,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
