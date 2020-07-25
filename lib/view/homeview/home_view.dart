@@ -35,11 +35,11 @@ class _HomeView extends State<HomeView> {
     );
 
     final _titlePresentationContainerHomeView = Padding(
-      padding: EdgeInsets.only(top: 124.0, bottom: 12.0),
+      padding: EdgeInsets.only(top: 12, bottom: 12.0),
       child: Text(
-        "Bonjour, je suis Evan",
+        "Bonjour! Petite présentation",
         style: TextStyle(
-            fontSize: 22,
+            fontSize: 28,
             color: CVColors.bluePrimaryColorDark,
             fontFamily: "RobotoRegular"),
       ),
@@ -48,12 +48,14 @@ class _HomeView extends State<HomeView> {
     final _bodyPresentationContainerHomeView = Padding(
       padding: EdgeInsets.only(top: 12.0),
       child: Container(
-        width: 400,
+        width: 600,
         child: Text(
-          "I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.",
+          "Diplômé d'un Master Informatique effectué à l'Université Catholique de Lille. "
+              "Développeur Mobile chez Ineat, Lille. "
+              "Passionné de football depuis tout petit, récemment de l'impression 3D et bien sûr des nouvelles technologies.",
           style: TextStyle(
-              fontSize: 15,
-              color: CVColors.bluePrimaryColorLight,
+              fontSize: 16,
+              color: CVColors.bluePrimaryColor,
               fontFamily: "RobotoThin"),
           textAlign: TextAlign.center,
         ),
@@ -64,7 +66,7 @@ class _HomeView extends State<HomeView> {
       padding: EdgeInsets.only(),
       child: Container(
         color: CVColors.greySecondaryColorLight,
-        height: 400,
+        height: 300,
         width: withContent,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
