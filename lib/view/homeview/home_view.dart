@@ -2,7 +2,10 @@ import 'dart:html' as html;
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:my_cv_flutter_web_app/data/model/experience.dart';
 import 'package:my_cv_flutter_web_app/theme/theme.dart';
+import 'package:timeline_tile/timeline_tile.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -10,6 +13,8 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeView extends State<HomeView> {
+  final format = new DateFormat('dd/MM/yyyy');
+
   @override
   Widget build(BuildContext context) {
     double withContent = MediaQuery.of(context).size.width;
@@ -51,8 +56,8 @@ class _HomeView extends State<HomeView> {
         width: 600,
         child: Text(
           "Diplômé d'un Master Informatique effectué à l'Université Catholique de Lille. "
-              "Développeur Mobile chez Ineat, Lille. "
-              "Passionné de football depuis tout petit, récemment de l'impression 3D et bien sûr des nouvelles technologies.",
+          "Développeur Mobile chez Ineat, Lille. "
+          "Passionné de football depuis tout petit, récemment de l'impression 3D et bien sûr des nouvelles technologies.",
           style: TextStyle(
               fontSize: 16,
               color: CVColors.bluePrimaryColor,
@@ -78,62 +83,87 @@ class _HomeView extends State<HomeView> {
       ),
     );
 
-    final _listViewExperiencesHomeView = Padding(
-      padding: EdgeInsets.only(),
-      child: ListView(
+    final _listViewExperiencesHomeView = Container(
+      child: ListView.builder(
         shrinkWrap: true,
-        children: [
-          Container(
-            child: Row(
-              children: [
-                Text("test"),
-                Expanded(
-                  child: VerticalDivider(
-                    color: CVColors.bluePrimaryColorDark,
-                    thickness: 5.0,
-                    width: 10,
-                  ),
-                ),
-                Text("Company"),
-              ],
+        itemCount: Experience.getExperiences().length,
+        itemBuilder: (BuildContext context, int index) {
+          return TimelineTile(
+            topLineStyle: LineStyle(color: CVColors.greySecondaryColorLight,
+              width: 2,
             ),
-          ),
-          Container(
-            child: Row(
-              children: [
-                Text("test"),
-                Expanded(
-                  child: VerticalDivider(
-                    color: CVColors.bluePrimaryColorDark,
-                    thickness: 5.0,
-                    width: 10,
+            indicatorStyle: IndicatorStyle(
+                width: 10, height: 10, color: CVColors.bluePrimaryColorDark),
+            alignment: TimelineAlign.center,
+            isFirst: index == 0,
+            isLast: index == Experience.getExperiences().length - 1,
+            rightChild: Padding(
+              padding: EdgeInsets.only(left: 24.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 12.0),
+                    child: Text(
+                      Experience.getExperiences()[index].company.toUpperCase(),
+                      style: TextStyle(
+                          color: CVColors.bluePrimaryColorDark,
+                          fontSize: 14,
+                          fontFamily: "RobotoBold"),
+                    ),
                   ),
-                ),
-                Text("Company"),
-              ],
-            ),
-          ),
-          Container(
-            child: Row(
-              children: [
-                Text("test"),
-                Expanded(
-                  child: VerticalDivider(
-                    color: CVColors.bluePrimaryColorDark,
-                    thickness: 5.0,
-                    width: 10,
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 12.0),
+                    child: Text(
+                      Experience.getExperiences()[index].context,
+                      style: TextStyle(
+                          color: CVColors.bluePrimaryColorDark,
+                          fontSize: 14,
+                          fontFamily: "RobotoThin"),
+                    ),
                   ),
-                ),
-                Text("Company"),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+            leftChild: Padding(
+              padding: EdgeInsets.only(right: 24.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        "${format.format(Experience.getExperiences()[index].startJob)} - ${format.format(Experience.getExperiences()[index].endJob)}",
+                        style: TextStyle(
+                            color: CVColors.bluePrimaryColorDark,
+                            fontSize: 14,
+                            fontFamily: "RobotoRegular"),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 6.0),
+                    child: Text(
+                      Experience.getExperiences()[index].titleJob,
+                      style: TextStyle(
+                          color: CVColors.bluePrimaryColorDark,
+                          fontSize: 14,
+                          fontFamily: "RobotoThin"),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
 
     final _experienceContainerHomeView = Padding(
-      padding: EdgeInsets.only(),
+      padding: EdgeInsets.only(top: 24.0, bottom: 24.0),
       child: Container(
         child: _listViewExperiencesHomeView,
       ),
@@ -313,6 +343,25 @@ class _HomeView extends State<HomeView> {
       ),
     );
 
+    final _experienceTitleContainerHomeView = Container(
+      height: 100,
+      decoration: BoxDecoration(
+        border: Border(
+          bottom:
+              BorderSide(width: 2.5, color: CVColors.greySecondaryColorLight),
+        ),
+      ),
+      child: Center(
+        child: Text(
+          "Experience".toUpperCase(),
+          style: TextStyle(
+              fontFamily: "RobotoRegular",
+              color: CVColors.bluePrimaryColorDark,
+              fontSize: 20),
+        ),
+      ),
+    );
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -361,6 +410,7 @@ class _HomeView extends State<HomeView> {
               children: <Widget>[
                 _workPictureContainerHomeView,
                 _presentationContainerHomeView,
+                _experienceTitleContainerHomeView,
                 _experienceContainerHomeView,
               ],
             ),
