@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:my_cv_flutter_web_app/data/model/degree.dart';
 import 'package:my_cv_flutter_web_app/data/model/experience.dart';
 import 'package:my_cv_flutter_web_app/theme/theme.dart';
 import 'package:timeline_tile/timeline_tile.dart';
@@ -362,6 +363,112 @@ class _HomeView extends State<HomeView> {
       ),
     );
 
+    final _educationTitleContainerHomeView = Container(
+      height: 100,
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(width: 2.5, color: CVColors.greySecondaryColorLight),
+          bottom:
+          BorderSide(width: 2.5, color: CVColors.greySecondaryColorLight),
+        ),
+      ),
+      child: Center(
+        child: Text(
+          "Diplômes".toUpperCase(),
+          style: TextStyle(
+              fontFamily: "RobotoRegular",
+              color: CVColors.bluePrimaryColorDark,
+              fontSize: 20),
+        ),
+      ),
+    );
+
+    final _listViewEducationHomeView = Container(
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: Degree.getDegrees().length,
+        itemBuilder: (BuildContext context, int index) {
+          return TimelineTile(
+            topLineStyle: LineStyle(color: CVColors.greySecondaryColorLight,
+              width: 2,
+            ),
+            indicatorStyle: IndicatorStyle(
+                width: 10, height: 10, color: CVColors.bluePrimaryColorDark),
+            alignment: TimelineAlign.center,
+            isFirst: index == 0,
+            isLast: index == Degree.getDegrees().length - 1,
+            rightChild: Padding(
+              padding: EdgeInsets.only(left: 24.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 12.0),
+                    child: Text(
+                      Degree.getDegrees()[index].school.toUpperCase(),
+                      style: TextStyle(
+                          color: CVColors.bluePrimaryColorDark,
+                          fontSize: 14,
+                          fontFamily: "RobotoBold"),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 12.0),
+                    child: Text(
+                      Degree.getDegrees()[index].context,
+                      style: TextStyle(
+                          color: CVColors.bluePrimaryColorDark,
+                          fontSize: 14,
+                          fontFamily: "RobotoThin"),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            leftChild: Padding(
+              padding: EdgeInsets.only(right: 24.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        "${Degree.getDegrees()[index].start} - ${Degree.getDegrees()[index].end}",
+                        style: TextStyle(
+                            color: CVColors.bluePrimaryColorDark,
+                            fontSize: 14,
+                            fontFamily: "RobotoRegular"),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 6.0),
+                    child: Text(
+                      "${Degree.getDegrees()[index].type} ${Degree.getDegrees()[index].name}",
+                      style: TextStyle(
+                          color: CVColors.bluePrimaryColorDark,
+                          fontSize: 14,
+                          fontFamily: "RobotoThin"),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
+
+    final _educationContainerHomeView = Padding(
+      padding: EdgeInsets.only(top: 24.0, bottom: 24.0),
+      child: Container(
+        child: _listViewEducationHomeView,
+      ),
+    );
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -412,6 +519,8 @@ class _HomeView extends State<HomeView> {
                 _presentationContainerHomeView,
                 _experienceTitleContainerHomeView,
                 _experienceContainerHomeView,
+                _educationTitleContainerHomeView,
+                _educationContainerHomeView,
               ],
             ),
             Center(
