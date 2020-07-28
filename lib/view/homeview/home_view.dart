@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:my_cv_flutter_web_app/data/model/degree.dart';
 import 'package:my_cv_flutter_web_app/data/model/experience.dart';
+import 'package:my_cv_flutter_web_app/data/model/skill.dart';
 import 'package:my_cv_flutter_web_app/theme/theme.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
@@ -90,7 +91,8 @@ class _HomeView extends State<HomeView> {
         itemCount: Experience.getExperiences().length,
         itemBuilder: (BuildContext context, int index) {
           return TimelineTile(
-            topLineStyle: LineStyle(color: CVColors.greySecondaryColorLight,
+            topLineStyle: LineStyle(
+              color: CVColors.greySecondaryColorLight,
               width: 2,
             ),
             indicatorStyle: IndicatorStyle(
@@ -369,7 +371,7 @@ class _HomeView extends State<HomeView> {
         border: Border(
           top: BorderSide(width: 2.5, color: CVColors.greySecondaryColorLight),
           bottom:
-          BorderSide(width: 2.5, color: CVColors.greySecondaryColorLight),
+              BorderSide(width: 2.5, color: CVColors.greySecondaryColorLight),
         ),
       ),
       child: Center(
@@ -389,7 +391,8 @@ class _HomeView extends State<HomeView> {
         itemCount: Degree.getDegrees().length,
         itemBuilder: (BuildContext context, int index) {
           return TimelineTile(
-            topLineStyle: LineStyle(color: CVColors.greySecondaryColorLight,
+            topLineStyle: LineStyle(
+              color: CVColors.greySecondaryColorLight,
               width: 2,
             ),
             indicatorStyle: IndicatorStyle(
@@ -469,6 +472,69 @@ class _HomeView extends State<HomeView> {
       ),
     );
 
+    final _skillTitleContainerHomeView = Container(
+      height: 100,
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(width: 2.5, color: CVColors.greySecondaryColorLight),
+          bottom:
+              BorderSide(width: 2.5, color: CVColors.greySecondaryColorLight),
+        ),
+      ),
+      child: Center(
+        child: Text(
+          "Compétences".toUpperCase(),
+          style: TextStyle(
+              fontFamily: "RobotoRegular",
+              color: CVColors.bluePrimaryColorDark,
+              fontSize: 20),
+        ),
+      ),
+    );
+
+    final _listViewSkillHomeView = Container(
+      alignment: Alignment.center,
+      padding: EdgeInsets.only(top: 24.0, bottom: 24.0),
+      height: 200,
+      child: Center(
+        child: ListView.builder(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemCount: Skill.getSkills().length,
+          itemBuilder: (BuildContext context, int index) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                  child: SizedBox(
+                    width: 100,
+                    height: 100,
+                    child: Image.network(Skill.getSkills()[index].pictureUrl),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 6.0),
+                  child: Text(
+                    Skill.getSkills()[index].name,
+                    style: TextStyle(
+                        fontFamily: "RobotoThin",
+                        color: CVColors.bluePrimaryColor,
+                        fontSize: 14),
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
+      ),
+    );
+
+    final _skillContainerHomeView = Padding(
+      padding: EdgeInsets.only(top: 12.0, bottom: 12.0),
+      child: _listViewSkillHomeView,
+    );
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -521,6 +587,8 @@ class _HomeView extends State<HomeView> {
                 _experienceContainerHomeView,
                 _educationTitleContainerHomeView,
                 _educationContainerHomeView,
+                _skillTitleContainerHomeView,
+                _skillContainerHomeView,
               ],
             ),
             Center(
