@@ -1,13 +1,16 @@
-import 'dart:html' as html;
 import 'dart:ui';
-
+import 'dart:html' as html;
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
-import 'package:my_cv_flutter_web_app/data/model/degree.dart';
-import 'package:my_cv_flutter_web_app/data/model/experience.dart';
-import 'package:my_cv_flutter_web_app/data/model/skill.dart';
-import 'package:my_cv_flutter_web_app/theme/theme.dart';
 import 'package:timeline_tile/timeline_tile.dart';
+import '../../theme/theme.dart';
+import '../../data/model/experience.dart';
+import '../../data/model/skill.dart';
+import '../../data/model/degree.dart';
+
+
+
 
 class HomeView extends StatefulWidget {
   @override

@@ -1,6 +1,9 @@
+
 import 'package:flutter/material.dart';
-import 'package:my_cv_flutter_web_app/theme/theme.dart';
-import 'package:my_cv_flutter_web_app/view/homeview/home_view.dart';
+import 'package:flutter/widgets.dart';
+import 'theme/theme.dart';
+
+import 'view/homeview/home_view.dart';
 
 void main() {
   runApp(MyApp());
