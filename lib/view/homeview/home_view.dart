@@ -1,16 +1,15 @@
-import 'dart:ui';
 import 'dart:html' as html;
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:timeline_tile/timeline_tile.dart';
-import '../../theme/theme.dart';
+
+import '../../data/model/degree.dart';
 import '../../data/model/experience.dart';
 import '../../data/model/skill.dart';
-import '../../data/model/degree.dart';
-
-
-
+import '../../theme/theme.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -538,6 +537,204 @@ class _HomeView extends State<HomeView> {
       child: _listViewSkillHomeView,
     );
 
+    final _contactTitleContainerHomeView = Container(
+      height: 100,
+      decoration: BoxDecoration(
+          border: Border(
+            top: BorderSide(width: 2.5, color: Colors.white),
+            bottom: BorderSide(width: 2.5, color: Colors.white),
+          ),
+          color: CVColors.greySecondaryColorLight),
+      child: Center(
+        child: Text(
+          "Me contacter".toUpperCase(),
+          style: TextStyle(
+              fontFamily: "RobotoRegular",
+              color: CVColors.bluePrimaryColorDark,
+              fontSize: 20),
+        ),
+      ),
+    );
+
+    final _nameContactTextFormFieldHomeView = Padding(
+      padding: EdgeInsets.only(right: 24.0),
+      child: TextFormField(
+        keyboardType: TextInputType.text,
+        decoration: InputDecoration(
+          labelText: 'Nom',
+          border: OutlineInputBorder(),
+        ),
+      ),
+    );
+
+    final _mailContactTextFormFieldHomeView = Padding(
+      padding: EdgeInsets.only(),
+      child: TextFormField(
+        keyboardType: TextInputType.text,
+        decoration: InputDecoration(
+          labelText: 'Adresse mail',
+          border: OutlineInputBorder(),
+        ),
+      ),
+    );
+
+    final _subjectContactTextFormFieldHomeView = Padding(
+      padding: EdgeInsets.only(top: 24.0),
+      child: TextFormField(
+        keyboardType: TextInputType.text,
+        decoration: InputDecoration(
+          labelText: 'Sujet',
+          border: OutlineInputBorder(),
+        ),
+      ),
+    );
+
+    final _messageContactTextFormFieldHomeView = Padding(
+      padding: EdgeInsets.only(top: 24.0),
+      child: TextFormField(
+        keyboardType: TextInputType.multiline,
+        decoration: InputDecoration(
+          labelText: 'Message',
+          border: OutlineInputBorder(),
+        ),
+        maxLines: null,
+      ),
+    );
+
+    final _dividerInformationContactHomeView = Container(
+      height: 1,
+      width: 400,
+      color: CVColors.greySecondaryColor,
+    );
+
+    final _informationContactHomeView = Container(
+      padding: EdgeInsets.only(left: 24.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            "Evan Martho",
+            style: TextStyle(
+                fontFamily: "RobotoRegular",
+                color: CVColors.bluePrimaryColorDark,
+                fontSize: 25),
+            textAlign: TextAlign.left,
+          ),
+          Text(
+            "Ingénieur Etudes et Développement Junior".toUpperCase(),
+            style: TextStyle(
+                fontFamily: "RobotoThin",
+                color: CVColors.bluePrimaryColorDark,
+                fontSize: 14),
+            textAlign: TextAlign.left,
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 24.0),
+            child: Text(
+              "Téléphone :",
+              style: TextStyle(
+                  fontFamily: "RobotoBold",
+                  color: CVColors.bluePrimaryColorDark,
+                  fontSize: 14),
+              textAlign: TextAlign.left,
+            ),
+          ),
+          Text(
+            "06 18 32 63 18",
+            style: TextStyle(
+                fontFamily: "RobotoThin",
+                color: CVColors.bluePrimaryColorDark,
+                fontSize: 14),
+            textAlign: TextAlign.left,
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 24.0),
+            child: Text(
+              "Email :",
+              style: TextStyle(
+                  fontFamily: "RobotoBold",
+                  color: CVColors.bluePrimaryColorDark,
+                  fontSize: 14),
+              textAlign: TextAlign.left,
+            ),
+          ),
+          Text(
+            "martho.evan@gmail.com",
+            style: TextStyle(
+                fontFamily: "RobotoThin",
+                color: CVColors.bluePrimaryColorDark,
+                fontSize: 14),
+            textAlign: TextAlign.left,
+          ),
+          Padding(
+              padding: EdgeInsets.only(top: 48.0, bottom: 6.0),
+              child: _dividerInformationContactHomeView),
+          Row(
+            children: [
+              IconButton(
+                icon: Image.asset(
+                  "assets/pictures/logo/github.png",
+                  color: CVColors.bluePrimaryColor,
+                  width: 22,
+                  height: 22,
+                ),
+                onPressed: () {
+                  html.window.location.href = "https://github.com/MayuriXx";
+                },
+              ),
+              IconButton(
+                icon: Image.asset(
+                  "assets/pictures/logo/linkedin.png",
+                  color: CVColors.bluePrimaryColor,
+                  width: 22,
+                  height: 22,
+                ),
+                onPressed: () {
+                  html.window.location.href =
+                      "https://www.linkedin.com/in/evan-martho/";
+                },
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+
+    final _contactContainerHomeView = Container(
+      padding: EdgeInsets.only(left: 24.0, top: 24.0, right: 24.0),
+      decoration: BoxDecoration(
+        border: Border(
+          right: BorderSide(width: 1.5, color: Colors.white),
+        ),
+      ),
+      width: withContent / 2,
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(child: _nameContactTextFormFieldHomeView),
+              Expanded(child: _mailContactTextFormFieldHomeView),
+            ],
+          ),
+          _subjectContactTextFormFieldHomeView,
+          _messageContactTextFormFieldHomeView,
+          Padding(
+            padding: EdgeInsets.only(top: 24.0, bottom: 24.0),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: RaisedButton(
+                onPressed: () {},
+                child: Text("Envoyer"),
+                color: CVColors.bluePrimaryColorDark,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -592,6 +789,17 @@ class _HomeView extends State<HomeView> {
                 _educationContainerHomeView,
                 _skillTitleContainerHomeView,
                 _skillContainerHomeView,
+                _contactTitleContainerHomeView,
+                Container(
+                  color: CVColors.greySecondaryColorLight,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      _contactContainerHomeView,
+                      _informationContactHomeView
+                    ],
+                  ),
+                ),
               ],
             ),
             Center(
