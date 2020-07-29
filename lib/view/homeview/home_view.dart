@@ -766,12 +766,15 @@ class _HomeView extends State<HomeView> {
             ),
             onPressed: () {},
           ),
-          FlatButton(
-            child: Text(
-              "Contact".toUpperCase(),
-              style: TextStyle(color: CVColors.bluePrimaryColorDark),
+          Padding(
+            padding: EdgeInsets.only(right: 6.0),
+            child: FlatButton(
+              child: Text(
+                "Contact".toUpperCase(),
+                style: TextStyle(color: CVColors.bluePrimaryColorDark),
+              ),
+              onPressed: () {},
             ),
-            onPressed: () {},
           ),
         ],
       ),
