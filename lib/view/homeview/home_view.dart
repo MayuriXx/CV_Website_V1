@@ -735,6 +735,15 @@ class _HomeView extends State<HomeView> {
       ),
     );
 
+    final _bottomContainerHomeView = Container(
+      color: Colors.white,
+      height: 50,
+      width: MediaQuery.of(context).size.width,
+      child: Center(
+        child: Text("© ${DateTime.now().year} By Evan Martho in Flutter Web", style: TextStyle(fontFamily: "RobotoThin", fontSize: 12, color: CVColors.greySecondaryColorDark) ,),
+      ),
+    );
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -803,6 +812,7 @@ class _HomeView extends State<HomeView> {
                     ],
                   ),
                 ),
+                _bottomContainerHomeView,
               ],
             ),
             Center(
