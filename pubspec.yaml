@@ -32,7 +32,7 @@ dependencies:
   url_launcher_web:
   timeline_tile:
   intl:
-
+  url_launcher:
 dev_dependencies:
   flutter_test:
     sdk: flutter

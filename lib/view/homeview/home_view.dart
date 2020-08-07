@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:timeline_tile/timeline_tile.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../data/model/degree.dart';
 import '../../data/model/experience.dart';
@@ -18,9 +19,30 @@ class HomeView extends StatefulWidget {
 
 class _HomeView extends State<HomeView> {
   final format = new DateFormat('dd/MM/yyyy');
+  final nameController = TextEditingController();
+  final mailController = TextEditingController();
+  final subjectController = TextEditingController();
+  final messageController = TextEditingController();
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    mailController.dispose();
+    subjectController.dispose();
+    messageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    void customLaunch(command) async {
+      if (await canLaunch(command)) {
+        await launch(command);
+      } else {
+        print("can't launch $command");
+      }
+    }
+
     double withContent = MediaQuery.of(context).size.width;
 
     final _workPictureContainerHomeView = Padding(
@@ -559,6 +581,7 @@ class _HomeView extends State<HomeView> {
     final _nameContactTextFormFieldHomeView = Padding(
       padding: EdgeInsets.only(right: 24.0),
       child: TextFormField(
+        controller: nameController,
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
           labelText: 'Nom',
@@ -570,6 +593,7 @@ class _HomeView extends State<HomeView> {
     final _mailContactTextFormFieldHomeView = Padding(
       padding: EdgeInsets.only(),
       child: TextFormField(
+        controller: mailController,
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
           labelText: 'Adresse mail',
@@ -581,6 +605,7 @@ class _HomeView extends State<HomeView> {
     final _subjectContactTextFormFieldHomeView = Padding(
       padding: EdgeInsets.only(top: 24.0),
       child: TextFormField(
+        controller: subjectController,
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
           labelText: 'Sujet',
@@ -592,6 +617,7 @@ class _HomeView extends State<HomeView> {
     final _messageContactTextFormFieldHomeView = Padding(
       padding: EdgeInsets.only(top: 24.0),
       child: TextFormField(
+        controller: messageController,
         keyboardType: TextInputType.multiline,
         decoration: InputDecoration(
           labelText: 'Message',
@@ -725,7 +751,11 @@ class _HomeView extends State<HomeView> {
             child: SizedBox(
               width: MediaQuery.of(context).size.width,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  print(_nameContactTextFormFieldHomeView);
+                  customLaunch(
+                      "mailto:${mailController.text}?subject=${subjectController.text}&body=Bonjour ${nameController.text},${messageController.text}");
+                },
                 child: Text("Envoyer"),
                 color: CVColors.bluePrimaryColorDark,
               ),
@@ -740,7 +770,13 @@ class _HomeView extends State<HomeView> {
       height: 50,
       width: MediaQuery.of(context).size.width,
       child: Center(
-        child: Text("© ${DateTime.now().year} By Evan Martho in Flutter Web", style: TextStyle(fontFamily: "RobotoThin", fontSize: 12, color: CVColors.greySecondaryColorDark) ,),
+        child: Text(
+          "© ${DateTime.now().year} By Evan Martho in Flutter Web",
+          style: TextStyle(
+              fontFamily: "RobotoThin",
+              fontSize: 12,
+              color: CVColors.greySecondaryColorDark),
+        ),
       ),
     );
 
