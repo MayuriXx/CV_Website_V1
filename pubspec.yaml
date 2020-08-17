@@ -55,8 +55,6 @@ flutter:
     - assets/pictures/logo/github.png
     - assets/pictures/logo/linkedin.png
     - assets/pictures/evan.png
-    - assets/pictures/evan_mini.png
-
   fonts:
     - family: RobotoThin
       fonts:
