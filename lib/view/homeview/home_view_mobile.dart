@@ -45,8 +45,177 @@ class _HomeViewMobile extends State<HomeViewMobile> {
       }
     }
 
+    final _titleInformationHomeView = Padding(
+      padding: EdgeInsets.only(top: 12.0, left: 24.0),
+      child: Text(
+        "Evan Martho",
+        style: TextStyle(
+            color: CVColors.bluePrimaryColorDark,
+            fontFamily: "RobotoRegular",
+            fontSize: 24),
+      ),
+    );
+    final _jobTitleInformationHomeView = Padding(
+      padding: EdgeInsets.only(left: 24.0, bottom: 12.0),
+      child: Text(
+        "Ingénieur Etudes et Développement Junior",
+        style: TextStyle(
+            color: CVColors.bluePrimaryColorDark,
+            fontFamily: "RobotoThin",
+            fontSize: 16),
+      ),
+    );
+    final _phoneInformationHomeView = Padding(
+      padding: EdgeInsets.only(left: 24.0, top: 12.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Téléphone :",
+            style: TextStyle(
+                color: CVColors.bluePrimaryColorDark,
+                fontFamily: "RobotoBold",
+                fontSize: 14),
+          ),
+          Text(
+            "06 18 32 63 18 18",
+            style: TextStyle(
+                color: CVColors.bluePrimaryColorDark,
+                fontFamily: "RobotoThin",
+                fontSize: 14),
+          ),
+        ],
+      ),
+    );
+    final _mailInformationHomeView = Padding(
+      padding: EdgeInsets.only(left: 24.0, top: 12.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Email :",
+            style: TextStyle(
+                color: CVColors.bluePrimaryColorDark,
+                fontFamily: "RobotoBold",
+                fontSize: 14),
+          ),
+          Text(
+            "martho.evan@gmail.com",
+            style: TextStyle(
+                color: CVColors.bluePrimaryColorDark,
+                fontFamily: "RobotoThin",
+                fontSize: 14),
+          ),
+        ],
+      ),
+    );
+    final _adressInformationHomeView = Padding(
+      padding: EdgeInsets.only(left: 24.0, top: 12.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Ville :",
+            style: TextStyle(
+                color: CVColors.bluePrimaryColorDark,
+                fontFamily: "RobotoBold",
+                fontSize: 14),
+          ),
+          Text(
+            "Maing",
+            style: TextStyle(
+                color: CVColors.bluePrimaryColorDark,
+                fontFamily: "RobotoThin",
+                fontSize: 14),
+          ),
+        ],
+      ),
+    );
+    final _dateOfBirthInformationHomeView = Padding(
+      padding: EdgeInsets.only(left: 24.0, top: 12.0, bottom: 12.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Date de naissance :",
+            style: TextStyle(
+                color: CVColors.bluePrimaryColorDark,
+                fontFamily: "RobotoBold",
+                fontSize: 14),
+          ),
+          Text(
+            "28 octobre 1996",
+            style: TextStyle(
+                color: CVColors.bluePrimaryColorDark,
+                fontFamily: "RobotoThin",
+                fontSize: 14),
+          ),
+        ],
+      ),
+    );
+
+    final _informationContainerHomeView = Padding(
+      padding: EdgeInsets.only(left: 24.0, right: 24.0),
+      child: Card(
+        elevation: 5.0,
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 300,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/pictures/evan.png'),
+                    fit: BoxFit.fill),
+              ),
+            ),
+            Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _titleInformationHomeView,
+                  _jobTitleInformationHomeView,
+                  _phoneInformationHomeView,
+                  _mailInformationHomeView,
+                  _adressInformationHomeView,
+                  _dateOfBirthInformationHomeView,
+                ],
+              ),
+            ),
+            Container(
+              height: 40,
+              color: CVColors.bluePrimaryColorDark,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                      icon: Image.asset(
+                        "assets/pictures/logo/github.png",
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        html.window.location.href =
+                            "https://github.com/MayuriXx";
+                      }),
+                  IconButton(
+                      icon: Image.asset(
+                        "assets/pictures/logo/linkedin.png",
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        html.window.location.href =
+                            "https://www.linkedin.com/in/evan-martho/";
+                      }),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+
     final _workPictureContainerHomeView = Padding(
-      padding: EdgeInsets.only(),
+      padding: EdgeInsets.only(bottom: 36.0),
       child: Container(
         height: 600,
         width: withContent,
@@ -567,27 +736,39 @@ class _HomeViewMobile extends State<HomeViewMobile> {
         actions: [],
       ),
       body: SingleChildScrollView(
-        child: Column(
+        child: Stack(
           children: [
-            _workPictureContainerHomeView,
-            _presentationContainerHomeView,
-            _experienceTitleContainerHomeView,
-            _experienceContainerHomeView,
-            _educationTitleContainerHomeView,
-            _educationContainerHomeView,
-            _skillTitleContainerHomeView,
-            _skillContainerHomeView,
-            _contactTitleContainerHomeView,
-            Container(
-              color: CVColors.greySecondaryColorLight,
-              child: Column(
-                children: [
-                  _contactContainerHomeView,
-                  _informationContactHomeView,
-                ],
-              ),
+            Column(
+              children: [
+                _workPictureContainerHomeView,
+                _presentationContainerHomeView,
+                _experienceTitleContainerHomeView,
+                _experienceContainerHomeView,
+                _educationTitleContainerHomeView,
+                _educationContainerHomeView,
+                _skillTitleContainerHomeView,
+                _skillContainerHomeView,
+                _contactTitleContainerHomeView,
+                Container(
+                  color: CVColors.greySecondaryColorLight,
+                  child: Column(
+                    children: [
+                      _contactContainerHomeView,
+                      _informationContactHomeView,
+                    ],
+                  ),
+                ),
+                _bottomContainerHomeView,
+              ],
             ),
-            _bottomContainerHomeView,
+            Center(
+              child: new Container(
+                  width: withContent,
+                  padding: new EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * .10,
+                  ),
+                  child: _informationContainerHomeView),
+            ),
           ],
         ),
       ),

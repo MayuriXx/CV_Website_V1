@@ -789,7 +789,7 @@ class _HomeView extends State<HomeView> {
               fontFamily: "RobotoRegular",
               color: CVColors.bluePrimaryColorDark),
         ),
-        actions: [
+        /*actions: [
           FlatButton(
             child: Text(
               "Experience".toUpperCase(),
@@ -821,10 +821,52 @@ class _HomeView extends State<HomeView> {
               onPressed: () {},
             ),
           ),
-        ],
+        ],*/
       ),
       body: SingleChildScrollView(
-        child: Stack(
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
+          children: [
+            Stack(
+              children: <Widget>[
+                // The containers in the background
+                new Column(
+                  children: <Widget>[
+                    _workPictureContainerHomeView,
+                    _presentationContainerHomeView,
+                    _experienceTitleContainerHomeView,
+                    _experienceContainerHomeView,
+                    _educationTitleContainerHomeView,
+                    _educationContainerHomeView,
+                    _skillTitleContainerHomeView,
+                    _skillContainerHomeView,
+                    _contactTitleContainerHomeView,
+                    Container(
+                      color: CVColors.greySecondaryColorLight,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          _contactContainerHomeView,
+                          _informationContactHomeView
+                        ],
+                      ),
+                    ),
+                    _bottomContainerHomeView,
+                  ],
+                ),
+                Center(
+                  child: new Container(
+                      width: 800,
+                      padding: new EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * .10,
+                      ),
+                      child: _informationContainerHomeView),
+                ),
+              ],
+            ),
+          ],
+        ), /*Stack(
           children: <Widget>[
             // The containers in the background
             new Column(
@@ -860,7 +902,7 @@ class _HomeView extends State<HomeView> {
                   child: _informationContainerHomeView),
             ),
           ],
-        ),
+        ),*/
       ),
     );
   }

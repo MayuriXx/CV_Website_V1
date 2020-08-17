@@ -33,6 +33,8 @@ dependencies:
   timeline_tile:
   intl:
   url_launcher:
+  flutter_screenutil:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -53,6 +55,7 @@ flutter:
     - assets/pictures/logo/github.png
     - assets/pictures/logo/linkedin.png
     - assets/pictures/evan.png
+    - assets/pictures/evan_mini.png
 
   fonts:
     - family: RobotoThin
