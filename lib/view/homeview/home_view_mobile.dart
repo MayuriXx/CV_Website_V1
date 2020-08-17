@@ -130,7 +130,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
 
     final _listViewExperiencesHomeView = ListView.builder(
       shrinkWrap: true,
-      itemCount: Experience.getExperiences().length-1,
+      itemCount: Experience.getExperiences().length - 1,
       itemBuilder: (BuildContext context, int index) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -195,7 +195,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
         border: Border(
           top: BorderSide(width: 2.5, color: CVColors.greySecondaryColorLight),
           bottom:
-          BorderSide(width: 2.5, color: CVColors.greySecondaryColorLight),
+              BorderSide(width: 2.5, color: CVColors.greySecondaryColorLight),
         ),
       ),
       child: Center(
@@ -211,7 +211,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
 
     final _listViewEducationHomeView = ListView.builder(
       shrinkWrap: true,
-      itemCount: Experience.getExperiences().length-1,
+      itemCount: Experience.getExperiences().length - 1,
       itemBuilder: (BuildContext context, int index) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -285,7 +285,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
         border: Border(
           top: BorderSide(width: 2.5, color: CVColors.greySecondaryColorLight),
           bottom:
-          BorderSide(width: 2.5, color: CVColors.greySecondaryColorLight),
+              BorderSide(width: 2.5, color: CVColors.greySecondaryColorLight),
         ),
       ),
       child: Center(
@@ -362,7 +362,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
     );
 
     final _nameContactTextFormFieldHomeView = Padding(
-      padding: EdgeInsets.only(right: 24.0),
+      padding: EdgeInsets.only(),
       child: TextFormField(
         controller: nameController,
         keyboardType: TextInputType.text,
@@ -374,7 +374,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
     );
 
     final _mailContactTextFormFieldHomeView = Padding(
-      padding: EdgeInsets.only(),
+      padding: EdgeInsets.only(top: 12.0),
       child: TextFormField(
         controller: mailController,
         keyboardType: TextInputType.text,
@@ -386,7 +386,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
     );
 
     final _subjectContactTextFormFieldHomeView = Padding(
-      padding: EdgeInsets.only(top: 24.0),
+      padding: EdgeInsets.only(top: 12.0),
       child: TextFormField(
         controller: subjectController,
         keyboardType: TextInputType.text,
@@ -398,7 +398,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
     );
 
     final _messageContactTextFormFieldHomeView = Padding(
-      padding: EdgeInsets.only(top: 24.0),
+      padding: EdgeInsets.only(top: 12.0),
       child: TextFormField(
         controller: messageController,
         keyboardType: TextInputType.multiline,
@@ -412,7 +412,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
 
     final _dividerInformationContactHomeView = Container(
       height: 1,
-      width: 400,
+      width: withContent - 50,
       color: CVColors.greySecondaryColor,
     );
 
@@ -478,7 +478,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
             textAlign: TextAlign.left,
           ),
           Padding(
-              padding: EdgeInsets.only(top: 48.0, bottom: 6.0),
+              padding: EdgeInsets.only(top: 24.0, bottom: 6.0),
               child: _dividerInformationContactHomeView),
           Row(
             children: [
@@ -502,7 +502,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
                 ),
                 onPressed: () {
                   html.window.location.href =
-                  "https://www.linkedin.com/in/evan-martho/";
+                      "https://www.linkedin.com/in/evan-martho/";
                 },
               ),
             ],
@@ -513,20 +513,11 @@ class _HomeViewMobile extends State<HomeViewMobile> {
 
     final _contactContainerHomeView = Container(
       padding: EdgeInsets.only(left: 24.0, top: 24.0, right: 24.0),
-      decoration: BoxDecoration(
-        border: Border(
-          right: BorderSide(width: 1.5, color: Colors.white),
-        ),
-      ),
-      width: withContent / 2,
+      width: withContent,
       child: Column(
         children: [
-          Row(
-            children: [
-              Expanded(child: _nameContactTextFormFieldHomeView),
-              Expanded(child: _mailContactTextFormFieldHomeView),
-            ],
-          ),
+          _nameContactTextFormFieldHomeView,
+          _mailContactTextFormFieldHomeView,
           _subjectContactTextFormFieldHomeView,
           _messageContactTextFormFieldHomeView,
           Padding(
@@ -587,6 +578,16 @@ class _HomeViewMobile extends State<HomeViewMobile> {
             _skillTitleContainerHomeView,
             _skillContainerHomeView,
             _contactTitleContainerHomeView,
+            Container(
+              color: CVColors.greySecondaryColorLight,
+              child: Column(
+                children: [
+                  _contactContainerHomeView,
+                  _informationContactHomeView,
+                ],
+              ),
+            ),
+            _bottomContainerHomeView,
           ],
         ),
       ),
