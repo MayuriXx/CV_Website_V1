@@ -755,6 +755,10 @@ class _HomeView extends State<HomeView> {
                   print(_nameContactTextFormFieldHomeView);
                   customLaunch(
                       "mailto:${mailController.text}?subject=${subjectController.text}&body=Bonjour ${nameController.text},${messageController.text}");
+                  mailController.text = "";
+                  subjectController.text = "";
+                  nameController.text = "";
+                  messageController.text = "";
                 },
                 child: Text("Envoyer"),
                 color: CVColors.bluePrimaryColorDark,
