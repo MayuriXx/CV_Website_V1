@@ -235,7 +235,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
     );
 
     final _titlePresentationContainerHomeView = Padding(
-      padding: EdgeInsets.only(top: 12, bottom: 12.0),
+      padding: EdgeInsets.only(top: 36.0, bottom: 12.0),
       child: Text(
         "Bonjour! Petite présentation",
         style: TextStyle(
