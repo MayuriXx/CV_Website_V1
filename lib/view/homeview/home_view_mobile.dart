@@ -56,7 +56,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
       ),
     );
     final _jobTitleInformationHomeView = Padding(
-      padding: EdgeInsets.only(left: 24.0, bottom: 12.0),
+      padding: EdgeInsets.only(left: 24.0, bottom: 12.0, right: 24.0),
       child: Text(
         "Ingénieur Etudes et Développement Junior",
         style: TextStyle(
@@ -157,7 +157,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
     final _informationContainerHomeView = Padding(
       padding: EdgeInsets.only(left: 24.0, right: 24.0),
       child: Card(
-        elevation: 5.0,
+        elevation: 4.0,
         child: Column(
           children: <Widget>[
             Container(
@@ -165,7 +165,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
               decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('assets/pictures/evan.png'),
-                    fit: BoxFit.fill),
+                    fit: BoxFit.cover),
               ),
             ),
             Container(
@@ -215,7 +215,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
     );
 
     final _workPictureContainerHomeView = Padding(
-      padding: EdgeInsets.only(bottom: 36.0),
+      padding: EdgeInsets.only(),
       child: Container(
         height: 600,
         width: withContent,
