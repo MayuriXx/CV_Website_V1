@@ -188,7 +188,8 @@ class _HomeViewMobile extends State<HomeViewMobile> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  IconButton(
+                  Expanded(
+                    child: IconButton(
                       icon: Image.asset(
                         "assets/pictures/logo/github.png",
                         color: Colors.white,
@@ -196,8 +197,11 @@ class _HomeViewMobile extends State<HomeViewMobile> {
                       onPressed: () {
                         html.window.location.href =
                             "https://github.com/MayuriXx";
-                      }),
-                  IconButton(
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: IconButton(
                       icon: Image.asset(
                         "assets/pictures/logo/linkedin.png",
                         color: Colors.white,
@@ -205,7 +209,9 @@ class _HomeViewMobile extends State<HomeViewMobile> {
                       onPressed: () {
                         html.window.location.href =
                             "https://www.linkedin.com/in/evan-martho/";
-                      }),
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -235,7 +241,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
     );
 
     final _titlePresentationContainerHomeView = Padding(
-      padding: EdgeInsets.only(top: 12, bottom: 12.0),
+      padding: EdgeInsets.only(top: 48.0, bottom: 12.0),
       child: Text(
         "Bonjour! Petite présentation",
         style: TextStyle(
@@ -702,7 +708,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
                   subjectController.text = "";
                   nameController.text = "";
                   messageController.text = "";
-                  },
+                },
                 child: Text("Envoyer"),
                 color: CVColors.bluePrimaryColorDark,
               ),
