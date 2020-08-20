@@ -7,7 +7,6 @@ import 'package:intl/intl.dart';
 import 'package:my_cv_flutter_web_app/data/model/degree.dart';
 import 'package:my_cv_flutter_web_app/data/model/experience.dart';
 import 'package:my_cv_flutter_web_app/data/model/skill.dart';
-import 'package:timeline_tile/timeline_tile.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../theme/theme.dart';
 
@@ -183,34 +182,28 @@ class _HomeViewMobile extends State<HomeViewMobile> {
               ),
             ),
             Container(
-              height: 40,
               color: CVColors.bluePrimaryColorDark,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
-                    child: IconButton(
-                      icon: Image.asset(
-                        "assets/pictures/logo/github.png",
-                        color: Colors.white,
-                      ),
-                      onPressed: () {
-                        html.window.location.href =
-                            "https://github.com/MayuriXx";
-                      },
+                  IconButton(
+                    icon: Image.asset(
+                      "assets/pictures/logo/github.png",
+                      color: Colors.white,
                     ),
+                    onPressed: () {
+                      html.window.location.href = "https://github.com/MayuriXx";
+                    },
                   ),
-                  Expanded(
-                    child: IconButton(
-                      icon: Image.asset(
-                        "assets/pictures/logo/linkedin.png",
-                        color: Colors.white,
-                      ),
-                      onPressed: () {
-                        html.window.location.href =
-                            "https://www.linkedin.com/in/evan-martho/";
-                      },
+                  IconButton(
+                    icon: Image.asset(
+                      "assets/pictures/logo/linkedin.png",
+                      color: Colors.white,
                     ),
+                    onPressed: () {
+                      html.window.location.href =
+                          "https://www.linkedin.com/in/evan-martho/";
+                    },
                   ),
                 ],
               ),
@@ -747,42 +740,40 @@ class _HomeViewMobile extends State<HomeViewMobile> {
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: Container(
-          child: Stack(
-            children: [
-              Column(
-                children: [
-                  _workPictureContainerHomeView,
-                  _presentationContainerHomeView,
-                  _experienceTitleContainerHomeView,
-                  _experienceContainerHomeView,
-                  _educationTitleContainerHomeView,
-                  _educationContainerHomeView,
-                  _skillTitleContainerHomeView,
-                  _skillContainerHomeView,
-                  _contactTitleContainerHomeView,
-                  Container(
-                    color: CVColors.greySecondaryColorLight,
-                    child: Column(
-                      children: [
-                        _contactContainerHomeView,
-                        _informationContactHomeView,
-                      ],
-                    ),
+        child: Stack(
+          children: [
+            Column(
+              children: [
+                _workPictureContainerHomeView,
+                _presentationContainerHomeView,
+                _experienceTitleContainerHomeView,
+                _experienceContainerHomeView,
+                _educationTitleContainerHomeView,
+                _educationContainerHomeView,
+                _skillTitleContainerHomeView,
+                _skillContainerHomeView,
+                _contactTitleContainerHomeView,
+                Container(
+                  color: CVColors.greySecondaryColorLight,
+                  child: Column(
+                    children: [
+                      _contactContainerHomeView,
+                      _informationContactHomeView,
+                    ],
                   ),
-                  _bottomContainerHomeView,
-                ],
-              ),
-              Center(
-                child: new Container(
-                    width: withContent,
-                    padding: new EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * .10,
-                    ),
-                    child: _informationContainerHomeView),
-              ),
-            ],
-          ),
+                ),
+                _bottomContainerHomeView,
+              ],
+            ),
+            Center(
+              child: new Container(
+                  width: withContent,
+                  padding: new EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * .10,
+                  ),
+                  child: _informationContainerHomeView),
+            ),
+          ],
         ),
       ),
     );
