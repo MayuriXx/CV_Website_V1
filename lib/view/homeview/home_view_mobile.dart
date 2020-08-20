@@ -746,38 +746,44 @@ class _HomeViewMobile extends State<HomeViewMobile> {
         actions: [],
       ),
       body: SingleChildScrollView(
-        child: Stack(
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
           children: [
-            Column(
+            Stack(
               children: [
-                _workPictureContainerHomeView,
-                _presentationContainerHomeView,
-                _experienceTitleContainerHomeView,
-                _experienceContainerHomeView,
-                _educationTitleContainerHomeView,
-                _educationContainerHomeView,
-                _skillTitleContainerHomeView,
-                _skillContainerHomeView,
-                _contactTitleContainerHomeView,
-                Container(
-                  color: CVColors.greySecondaryColorLight,
-                  child: Column(
-                    children: [
-                      _contactContainerHomeView,
-                      _informationContactHomeView,
-                    ],
-                  ),
+                Column(
+                  children: [
+                    _workPictureContainerHomeView,
+                    _presentationContainerHomeView,
+                    _experienceTitleContainerHomeView,
+                    _experienceContainerHomeView,
+                    _educationTitleContainerHomeView,
+                    _educationContainerHomeView,
+                    _skillTitleContainerHomeView,
+                    _skillContainerHomeView,
+                    _contactTitleContainerHomeView,
+                    Container(
+                      color: CVColors.greySecondaryColorLight,
+                      child: Column(
+                        children: [
+                          _contactContainerHomeView,
+                          _informationContactHomeView,
+                        ],
+                      ),
+                    ),
+                    _bottomContainerHomeView,
+                  ],
                 ),
-                _bottomContainerHomeView,
+                Center(
+                  child: new Container(
+                      width: withContent,
+                      padding: new EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * .10,
+                      ),
+                      child: _informationContainerHomeView),
+                ),
               ],
-            ),
-            Center(
-              child: new Container(
-                  width: withContent,
-                  padding: new EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * .10,
-                  ),
-                  child: _informationContainerHomeView),
             ),
           ],
         ),
