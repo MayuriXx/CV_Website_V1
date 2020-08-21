@@ -186,24 +186,29 @@ class _HomeViewMobile extends State<HomeViewMobile> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  IconButton(
-                    icon: Image.asset(
-                      "assets/pictures/logo/github.png",
-                      color: Colors.white,
+                  Container(
+                    child: IconButton(
+                      icon: Image.asset(
+                        "assets/pictures/logo/github.png",
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        html.window.location.href =
+                            "https://github.com/MayuriXx";
+                      },
                     ),
-                    onPressed: () {
-                      html.window.location.href = "https://github.com/MayuriXx";
-                    },
                   ),
-                  IconButton(
-                    icon: Image.asset(
-                      "assets/pictures/logo/linkedin.png",
-                      color: Colors.white,
+                  Container(
+                    child: IconButton(
+                      icon: Image.asset(
+                        "assets/pictures/logo/linkedin.png",
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        html.window.location.href =
+                            "https://www.linkedin.com/in/evan-martho/";
+                      },
                     ),
-                    onPressed: () {
-                      html.window.location.href =
-                          "https://www.linkedin.com/in/evan-martho/";
-                    },
                   ),
                 ],
               ),
@@ -234,7 +239,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
     );
 
     final _titlePresentationContainerHomeView = Padding(
-      padding: EdgeInsets.only(top: 48.0, bottom: 12.0),
+      padding: EdgeInsets.only(top: 62.0, bottom: 12.0),
       child: Text(
         "Bonjour! Petite présentation",
         style: TextStyle(
@@ -297,6 +302,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
     );
 
     final _listViewExperiencesHomeView = ListView.builder(
+      physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: Experience.getExperiences().length - 1,
       itemBuilder: (BuildContext context, int index) {
@@ -351,7 +357,8 @@ class _HomeViewMobile extends State<HomeViewMobile> {
     );
 
     final _experienceContainerHomeView = Padding(
-      padding: EdgeInsets.only(top: 24.0, bottom: 24.0),
+      padding:
+          EdgeInsets.only(top: 24.0, bottom: 24.0),
       child: Container(
         child: _listViewExperiencesHomeView,
       ),
@@ -378,6 +385,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
     );
 
     final _listViewEducationHomeView = ListView.builder(
+      physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: Experience.getExperiences().length - 1,
       itemBuilder: (BuildContext context, int index) {
@@ -739,7 +747,7 @@ class _HomeViewMobile extends State<HomeViewMobile> {
         actions: [],
       ),
       body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
+        physics: ScrollPhysics(),
         child: Stack(
           children: [
             Column(
