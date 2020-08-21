@@ -186,24 +186,29 @@ class _HomeViewMobile extends State<HomeViewMobile> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  IconButton(
-                    icon: Image.asset(
-                      "assets/pictures/logo/github.png",
-                      color: Colors.white,
+                  Container(
+                    child: IconButton(
+                      icon: Image.asset(
+                        "assets/pictures/logo/github.png",
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        html.window.location.href =
+                            "https://github.com/MayuriXx";
+                      },
                     ),
-                    onPressed: () {
-                      html.window.location.href = "https://github.com/MayuriXx";
-                    },
                   ),
-                  IconButton(
-                    icon: Image.asset(
-                      "assets/pictures/logo/linkedin.png",
-                      color: Colors.white,
+                  Container(
+                    child: IconButton(
+                      icon: Image.asset(
+                        "assets/pictures/logo/linkedin.png",
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        html.window.location.href =
+                            "https://www.linkedin.com/in/evan-martho/";
+                      },
                     ),
-                    onPressed: () {
-                      html.window.location.href =
-                          "https://www.linkedin.com/in/evan-martho/";
-                    },
                   ),
                 ],
               ),
@@ -742,28 +747,30 @@ class _HomeViewMobile extends State<HomeViewMobile> {
         scrollDirection: Axis.vertical,
         child: Stack(
           children: [
-            Column(
-              children: [
-                _workPictureContainerHomeView,
-                _presentationContainerHomeView,
-                _experienceTitleContainerHomeView,
-                _experienceContainerHomeView,
-                _educationTitleContainerHomeView,
-                _educationContainerHomeView,
-                _skillTitleContainerHomeView,
-                _skillContainerHomeView,
-                _contactTitleContainerHomeView,
-                Container(
-                  color: CVColors.greySecondaryColorLight,
-                  child: Column(
-                    children: [
-                      _contactContainerHomeView,
-                      _informationContactHomeView,
-                    ],
+            Container(
+              child: Column(
+                children: [
+                  _workPictureContainerHomeView,
+                  _presentationContainerHomeView,
+                  _experienceTitleContainerHomeView,
+                  _experienceContainerHomeView,
+                  _educationTitleContainerHomeView,
+                  _educationContainerHomeView,
+                  _skillTitleContainerHomeView,
+                  _skillContainerHomeView,
+                  _contactTitleContainerHomeView,
+                  Container(
+                    color: CVColors.greySecondaryColorLight,
+                    child: Column(
+                      children: [
+                        _contactContainerHomeView,
+                        _informationContactHomeView,
+                      ],
+                    ),
                   ),
-                ),
-                _bottomContainerHomeView,
-              ],
+                  _bottomContainerHomeView,
+                ],
+              ),
             ),
             Center(
               child: new Container(
