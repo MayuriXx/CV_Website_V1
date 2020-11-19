@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
+import 'package:my_cv_flutter_web_app/components/widgets/em_app_bar.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -785,50 +786,58 @@ class _HomeView extends State<HomeView> {
     );
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text(
-          "Evan Martho",
-          style: TextStyle(
-              fontFamily: "RobotoRegular",
-              color: CVColors.bluePrimaryColorDark),
-        ),
-        /*actions: [
-          FlatButton(
-            child: Text(
-              "Experience".toUpperCase(),
-              style: TextStyle(color: CVColors.bluePrimaryColorDark),
+      appBar: EmAppBar().build(context),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView(
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              children: [
+                Stack(
+                  children: <Widget>[
+                    // The containers in the background
+                    new Column(
+                      children: <Widget>[
+                        _workPictureContainerHomeView,
+                        _presentationContainerHomeView,
+                        _experienceTitleContainerHomeView,
+                        _experienceContainerHomeView,
+                        _educationTitleContainerHomeView,
+                        _educationContainerHomeView,
+                        _skillTitleContainerHomeView,
+                        _skillContainerHomeView,
+                        _contactTitleContainerHomeView,
+                        Container(
+                          color: CVColors.greySecondaryColorLight,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              _contactContainerHomeView,
+                              _informationContactHomeView
+                            ],
+                          ),
+                        ),
+                        _bottomContainerHomeView,
+                      ],
+                    ),
+                    Center(
+                      child: new Container(
+                          width: 800,
+                          padding: new EdgeInsets.only(
+                            top: MediaQuery.of(context).size.height * .10,
+                          ),
+                          child: _informationContainerHomeView),
+                    ),
+                  ],
+                ),
+              ],
             ),
-            onPressed: () {},
           ),
-          FlatButton(
-            child: Text(
-              "Diplômes".toUpperCase(),
-              style: TextStyle(color: CVColors.bluePrimaryColorDark),
-            ),
-            onPressed: () {},
-          ),
-          FlatButton(
-            child: Text(
-              "Compétences".toUpperCase(),
-              style: TextStyle(color: CVColors.bluePrimaryColorDark),
-            ),
-            onPressed: () {},
-          ),
-          Padding(
-            padding: EdgeInsets.only(right: 6.0),
-            child: FlatButton(
-              child: Text(
-                "Contact".toUpperCase(),
-                style: TextStyle(color: CVColors.bluePrimaryColorDark),
-              ),
-              onPressed: () {},
-            ),
-          ),
-        ],*/
+        ],
       ),
-      body: SingleChildScrollView(
-        child: ListView(
+    );
+    /*child: ListView(
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
           children: [
@@ -870,44 +879,6 @@ class _HomeView extends State<HomeView> {
               ],
             ),
           ],
-        ), /*Stack(
-          children: <Widget>[
-            // The containers in the background
-            new Column(
-              children: <Widget>[
-                _workPictureContainerHomeView,
-                _presentationContainerHomeView,
-                _experienceTitleContainerHomeView,
-                _experienceContainerHomeView,
-                _educationTitleContainerHomeView,
-                _educationContainerHomeView,
-                _skillTitleContainerHomeView,
-                _skillContainerHomeView,
-                _contactTitleContainerHomeView,
-                Container(
-                  color: CVColors.greySecondaryColorLight,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      _contactContainerHomeView,
-                      _informationContactHomeView
-                    ],
-                  ),
-                ),
-                _bottomContainerHomeView,
-              ],
-            ),
-            Center(
-              child: new Container(
-                  width: 800,
-                  padding: new EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * .10,
-                  ),
-                  child: _informationContainerHomeView),
-            ),
-          ],
         ),*/
-      ),
-    );
   }
 }
