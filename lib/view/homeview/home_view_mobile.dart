@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
+import 'package:my_cv_flutter_web_app/components/widgets/em_app_bar.dart';
 import 'package:my_cv_flutter_web_app/data/model/degree.dart';
 import 'package:my_cv_flutter_web_app/data/model/experience.dart';
 import 'package:my_cv_flutter_web_app/data/model/skill.dart';
@@ -735,54 +736,53 @@ class _HomeViewMobile extends State<HomeViewMobile> {
     );
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text(
-          "Evan Martho",
-          style: TextStyle(
-              fontFamily: "RobotoRegular",
-              color: CVColors.bluePrimaryColorDark),
-          textAlign: TextAlign.center,
-        ),
-        actions: [],
-      ),
-      body: SingleChildScrollView(
-        physics: ScrollPhysics(),
-        child: Stack(
-          children: [
-            Column(
+      appBar: EmAppBar().build(context),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView(
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
               children: [
-                _workPictureContainerHomeView,
-                _presentationContainerHomeView,
-                _experienceTitleContainerHomeView,
-                _experienceContainerHomeView,
-                _educationTitleContainerHomeView,
-                _educationContainerHomeView,
-                _skillTitleContainerHomeView,
-                _skillContainerHomeView,
-                _contactTitleContainerHomeView,
-                Container(
-                  color: CVColors.greySecondaryColorLight,
-                  child: Column(
-                    children: [
-                      _contactContainerHomeView,
-                      _informationContactHomeView,
-                    ],
-                  ),
+                Stack(
+                  children: [
+                    Column(
+                      children: [
+                        _workPictureContainerHomeView,
+                        _presentationContainerHomeView,
+                        _experienceTitleContainerHomeView,
+                        _experienceContainerHomeView,
+                        _educationTitleContainerHomeView,
+                        _educationContainerHomeView,
+                        _skillTitleContainerHomeView,
+                        _skillContainerHomeView,
+                        _contactTitleContainerHomeView,
+                        Container(
+                          color: CVColors.greySecondaryColorLight,
+                          child: Column(
+                            children: [
+                              _contactContainerHomeView,
+                              _informationContactHomeView,
+                            ],
+                          ),
+                        ),
+                        _bottomContainerHomeView,
+                      ],
+                    ),
+                    Center(
+                      child: new Container(
+                          width: withContent,
+                          padding: new EdgeInsets.only(
+                            top: MediaQuery.of(context).size.height * .10,
+                          ),
+                          child: _informationContainerHomeView),
+                    ),
+                  ],
                 ),
-                _bottomContainerHomeView,
               ],
             ),
-            Center(
-              child: new Container(
-                  width: withContent,
-                  padding: new EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * .10,
-                  ),
-                  child: _informationContainerHomeView),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
