@@ -64,7 +64,7 @@ class Skill {
       Skill(
           name: "Home Assistant",
           pictureUrl:
-              "https://raw.githubusercontent.com/home-assistant/home-assistant-assets/master/logo-small.png"),
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Home_Assistant_Logo.svg/1200px-Home_Assistant_Logo.svg.png"),
       Skill(
           name: "Jeedom",
           pictureUrl:

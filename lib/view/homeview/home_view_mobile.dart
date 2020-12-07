@@ -302,64 +302,69 @@ class _HomeViewMobile extends State<HomeViewMobile> {
       ),
     );
 
-    final _listViewExperiencesHomeView = ListView.builder(
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: Experience.getExperiences().length - 1,
-      itemBuilder: (BuildContext context, int index) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: 12.0, top: 12.0, bottom: 12.0),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.fiber_manual_record,
-                    size: 10,
-                    color: CVColors.bluePrimaryColorDark,
+    final _listViewExperiencesHomeView = Column(
+      children: [
+        ListView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: Experience.getExperiences().length - 1,
+          itemBuilder: (BuildContext context, int index) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 12.0, top: 12.0, bottom: 12.0),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.fiber_manual_record,
+                        size: 10,
+                        color: CVColors.bluePrimaryColorDark,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 6.0),
+                        child: Text(
+                          "${format.format(Experience.getExperiences()[index].startJob).toUpperCase()}-${format.format(Experience.getExperiences()[index].endJob).toUpperCase()}",
+                          style: TextStyle(
+                              color: CVColors.bluePrimaryColorDark,
+                              fontSize: 14,
+                              fontFamily: "RobotoRegular"),
+                        ),
+                      ),
+                    ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 6.0),
-                    child: Text(
-                      "${format.format(Experience.getExperiences()[index].startJob).toUpperCase()}-${format.format(Experience.getExperiences()[index].endJob).toUpperCase()}",
-                      style: TextStyle(
-                          color: CVColors.bluePrimaryColorDark,
-                          fontSize: 14,
-                          fontFamily: "RobotoRegular"),
-                    ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsets.only(left: 24.0, right: 24.0, bottom: 12.0),
+                  child: Text(
+                    "${Experience.getExperiences()[index].company.toUpperCase()}",
+                    style: TextStyle(
+                        color: CVColors.bluePrimaryColor,
+                        fontSize: 14,
+                        fontFamily: "RobotoRegular"),
                   ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 24.0, right: 24.0, bottom: 12.0),
-              child: Text(
-                "${Experience.getExperiences()[index].company.toUpperCase()}",
-                style: TextStyle(
-                    color: CVColors.bluePrimaryColor,
-                    fontSize: 14,
-                    fontFamily: "RobotoRegular"),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 24.0, right: 24.0, bottom: 12.0),
-              child: Text(
-                "${Experience.getExperiences()[index].context}",
-                style: TextStyle(
-                    color: CVColors.bluePrimaryColor,
-                    fontSize: 14,
-                    fontFamily: "RobotoThin"),
-              ),
-            ),
-          ],
-        );
-      },
+                ),
+                Padding(
+                  padding:
+                      EdgeInsets.only(left: 24.0, right: 24.0, bottom: 12.0),
+                  child: Text(
+                    "${Experience.getExperiences()[index].context}",
+                    style: TextStyle(
+                        color: CVColors.bluePrimaryColor,
+                        fontSize: 14,
+                        fontFamily: "RobotoThin"),
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
+      ],
     );
 
     final _experienceContainerHomeView = Padding(
-      padding:
-          EdgeInsets.only(top: 24.0, bottom: 24.0),
+      padding: EdgeInsets.only(top: 24.0, bottom: 24.0),
       child: Container(
         child: _listViewExperiencesHomeView,
       ),
@@ -385,69 +390,75 @@ class _HomeViewMobile extends State<HomeViewMobile> {
       ),
     );
 
-    final _listViewEducationHomeView = ListView.builder(
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: Experience.getExperiences().length - 1,
-      itemBuilder: (BuildContext context, int index) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: 12.0, top: 12.0, bottom: 12.0),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.fiber_manual_record,
-                    size: 10,
-                    color: CVColors.bluePrimaryColorDark,
+    final _listViewEducationHomeView = Column(
+      children: [
+        ListView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: Experience.getExperiences().length - 1,
+          itemBuilder: (BuildContext context, int index) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 12.0, top: 12.0, bottom: 12.0),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.fiber_manual_record,
+                        size: 10,
+                        color: CVColors.bluePrimaryColorDark,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 6.0),
+                        child: Text(
+                          "${Degree.getDegrees()[index].start.toUpperCase()}-${Degree.getDegrees()[index].end.toUpperCase()}",
+                          style: TextStyle(
+                              color: CVColors.bluePrimaryColorDark,
+                              fontSize: 14,
+                              fontFamily: "RobotoRegular"),
+                        ),
+                      ),
+                    ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 6.0),
-                    child: Text(
-                      "${Degree.getDegrees()[index].start.toUpperCase()}-${Degree.getDegrees()[index].end.toUpperCase()}",
-                      style: TextStyle(
-                          color: CVColors.bluePrimaryColorDark,
-                          fontSize: 14,
-                          fontFamily: "RobotoRegular"),
-                    ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 24.0, right: 24.0),
+                  child: Text(
+                    "${Degree.getDegrees()[index].school}",
+                    style: TextStyle(
+                        color: CVColors.bluePrimaryColor,
+                        fontSize: 14,
+                        fontFamily: "RobotoRegular"),
                   ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 24.0, right: 24.0),
-              child: Text(
-                "${Degree.getDegrees()[index].school}",
-                style: TextStyle(
-                    color: CVColors.bluePrimaryColor,
-                    fontSize: 14,
-                    fontFamily: "RobotoRegular"),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 24.0, right: 24.0, bottom: 12.0),
-              child: Text(
-                "${Degree.getDegrees()[index].name.toUpperCase()}",
-                style: TextStyle(
-                    color: CVColors.bluePrimaryColor,
-                    fontSize: 14,
-                    fontFamily: "RobotoRegular"),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 24.0, right: 24.0, bottom: 12.0),
-              child: Text(
-                "${Degree.getDegrees()[index].context}",
-                style: TextStyle(
-                    color: CVColors.bluePrimaryColor,
-                    fontSize: 14,
-                    fontFamily: "RobotoThin"),
-              ),
-            ),
-          ],
-        );
-      },
+                ),
+                Padding(
+                  padding:
+                      EdgeInsets.only(left: 24.0, right: 24.0, bottom: 12.0),
+                  child: Text(
+                    "${Degree.getDegrees()[index].name.toUpperCase()}",
+                    style: TextStyle(
+                        color: CVColors.bluePrimaryColor,
+                        fontSize: 14,
+                        fontFamily: "RobotoRegular"),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsets.only(left: 24.0, right: 24.0, bottom: 12.0),
+                  child: Text(
+                    "${Degree.getDegrees()[index].context}",
+                    style: TextStyle(
+                        color: CVColors.bluePrimaryColor,
+                        fontSize: 14,
+                        fontFamily: "RobotoThin"),
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
+      ],
     );
 
     final _educationContainerHomeView = Padding(
