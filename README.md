@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/MayuriXx/CV_Website.svg?token=yoSNKsqzUqydxpvmVfja&branch=master)](https://travis-ci.com/MayuriXx/CV_Website) [![Coverage Status](https://coveralls.io/repos/github/MayuriXx/CV_Website/badge.svg?t=lUuLgm)](https://coveralls.io/github/MayuriXx/CV_Website)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/faffff0e-e5b7-47c1-a8e4-6f50f2418aa0/deploy-status)](https://app.netlify.com/sites/elegant-curran-a42336/deploys)
 
 # my_cv_flutter_web_app
 
